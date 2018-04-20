@@ -2,7 +2,7 @@
 profiled
 ********
 
-.. |pypi| image:: https://img.shields.io/pypi/v/profiled.svg
+.. image:: https://img.shields.io/pypi/v/profiled.svg
    :target: https://pypi.org/project/profiled
    :alt: PyPI version
 
