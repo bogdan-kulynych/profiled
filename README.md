@@ -1,6 +1,6 @@
 # profiled
 
-A small profiling decorator:
+A simple profiling decorator:
 
 ```python
 In [1]: from profiled import profiled, Profiler
@@ -25,3 +25,5 @@ Out[5]:
   'std': 6.953436521202228e-07,
   'tot': 0.022763967514038086}}
 ```
+
+That's it.
