@@ -2,7 +2,19 @@
 profiled
 ********
 
-A simple profiling decorator ::
+.. |pypi| image:: https://img.shields.io/pypi/v/profiled.svg
+   :target: https://pypi.org/project/profiled
+   :alt: PyPI version
+
+.. image:: https://travis-ci.org/bogdan-kulynych/profiled.svg?branch=master
+   :target: https://travis-ci.org/bogdan-kulynych/profiled
+   :alt: There's even a Travis badge!
+
+|
+
+A simple profiling decorator:
+
+.. code-block:: python
 
     In [1]: from profiled import profiled, Profiler
 
