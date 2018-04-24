@@ -10,7 +10,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 import time
 import statistics as stats
+
 from collections import defaultdict
+from functools import wraps
+
 from defaultcontext import with_default_context
 
 
@@ -51,6 +54,7 @@ class Profiler(object):
 def profiled(func):
     """Profiling decorator."""
 
+    @wraps(func)
     def wrapped(*args, **kwargs):
         profiler = Profiler.get_default()
         if profiler is None:

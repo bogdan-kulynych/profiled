@@ -12,7 +12,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name = "profiled",
-    version = "0.0.2",
+    version = "0.1.0",
     author = "Bogdan Kulynych",
     author_email = "hello@bogdankulynych.me",
     description = "Simple profiling decorator",
