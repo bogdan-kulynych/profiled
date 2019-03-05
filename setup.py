@@ -12,13 +12,13 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name = "profiled",
-    version = "0.1.0",
+    version = "1.0.0",
+    python_requires='>3.4.0',
     author = "Bogdan Kulynych",
     author_email = "hello@bogdankulynych.me",
     description = "Simple profiling decorator",
     url = "https://github.com/bogdan-kulynych/profiled",
     install_requires = [
-        'statistics',
         'defaultcontext'
     ],
     license = "MIT",
@@ -32,8 +32,6 @@ setup(
 	"License :: OSI Approved :: MIT License",
 	"Operating System :: OS Independent",
 	"Programming Language :: Python",
-	"Programming Language :: Python :: 2",
-	"Programming Language :: Python :: 2.7",
 	"Programming Language :: Python :: 3",
 	"Programming Language :: Python :: 3.4",
 	"Programming Language :: Python :: 3.5",

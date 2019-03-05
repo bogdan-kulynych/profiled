@@ -1,5 +1,5 @@
 """
-Copyright 2018 Bogdan Kulynych
+Copyright 2019 Bogdan Kulynych
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -51,6 +51,11 @@ class Profiler(object):
         return result
 
 
+def get_func_id(func):
+    """Get a quasi-identifier of a given function."""
+    return func.__qualname__
+
+
 def profiled(func):
     """Profiling decorator."""
 
@@ -63,7 +68,7 @@ def profiled(func):
         t0 = time.time()
         result = func(*args, **kwargs)
         t1 = time.time()
-        profiler.data[func.__name__].append(t1 - t0)
+        profiler.data[get_func_id(func)].append(t1 - t0)
         return result
 
     return wrapped

@@ -38,6 +38,6 @@ A simple profiling decorator:
       'std': 6.953436521202228e-07,
       'tot': 0.022763967514038086}}
 
-That's about it.
+The decorator also works with class methods. That's about it. 
 
 Install with ``pip install profiled``.
