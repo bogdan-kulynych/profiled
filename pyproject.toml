@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "profiled"
+version = "2.0.0"
+description = "Simple profiling decorator"
+authors = ["Bogdan Kulynych <bogdan@kulyny.ch>"]
+license = "MIT"
+readme = "README.rst"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

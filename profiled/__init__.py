@@ -14,17 +14,14 @@ import statistics as stats
 from collections import defaultdict
 from functools import wraps
 
-from defaultcontext import with_default_context
 
-
-@with_default_context
-class Profiler(object):
+class Profiler:
     """Profiling context.
 
     Example ::
 
         profiler = Profiler()
-        with profiler.as_default():
+        with profiler:
             do_stuff()   # (1)
 
         do_stuff()       # (2)
@@ -33,22 +30,38 @@ class Profiler(object):
     This will show profiling stats for line (1), but not (2),
     because line 2 is not executed in the context.
     """
+
+    _default_instance = None
+
+    @staticmethod
+    def get_default():
+        return Profiler._default_instance
+
     def __init__(self):
+        self.reset()
+
+    def reset(self):
         self.data = defaultdict(list)
 
     def compute_stats(self):
         result = {}
         for func_name, data_points in self.data.items():
             result[func_name] = {
-                'avg': stats.mean(data_points),
-                'min': min(data_points),
-                'max': max(data_points),
-                'num': len(data_points),
-                'tot': sum(data_points),
+                "avg": stats.mean(data_points),
+                "min": min(data_points),
+                "max": max(data_points),
+                "num": len(data_points),
+                "tot": sum(data_points),
             }
             if len(data_points) >= 2:
-                result[func_name]['std'] = stats.stdev(data_points)
+                result[func_name]["std"] = stats.stdev(data_points)
         return result
+
+    def __enter__(self):
+        Profiler._default_instance = self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        Profiler._default_instance = None
 
 
 def get_func_id(func):
